@@ -44,6 +44,7 @@ struct StepperButtons: View {
     @State private var hideButtonTwo    = false
     
     var body: some View {
+        VStack{
         HStack(spacing: 30) {
             ZStack{
                 if !hideButtonOne {
@@ -79,7 +80,8 @@ struct StepperButtons: View {
         }
         .font(.title)
         .padding(30)
-        
+        }
+        Text("Ex: 2 x 2")
     }
     
     
