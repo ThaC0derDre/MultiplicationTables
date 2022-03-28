@@ -37,26 +37,44 @@ struct ChoiceButtons: View {
 }
 
 struct StepperButtons: View {
-    @State var stepDown: Int
-    @State var selectedNum: Int
-    @State var stepUp: Int
+    @State private var stepDown     = 2
+    @State private var selectedNum  = 3
+    @State private var stepUp       = 4
     @State private var hideButtonOne    = false
     @State private var hideButtonTwo    = false
     
     var body: some View {
         HStack(spacing: 30) {
-            
-            Button(hideButtonOne ? " " : "\(stepDown)"){
+            ZStack{
+                if !hideButtonOne {
+                Image(systemName: "arrowtriangle.left.fill")
+                    .resizable()
+                    .frame(width: 65, height: 55)
+                    .foregroundColor(.blue)
+                }
+            Button(hideButtonOne ? "           " : "  \(stepDown)"){
                 guard !hideButtonOne else { return }
                 applyStepper(with: -1)
                 }
+            .foregroundColor(.white)
+            }
             
-                Text("\(selectedNum)")
+            
+                Text("x\(selectedNum)")
                     .font(.largeTitle)
-            Button(hideButtonTwo ? "    " : "\(stepUp)"){
+            ZStack{
+                if !hideButtonTwo {
+                Image(systemName: "arrowtriangle.right.fill")
+                    .resizable()
+                    .frame(width: 65, height: 57)
+                    .foregroundColor(.blue)
+                }
+            Button(hideButtonTwo ? "           " : "  \(stepUp)    ."){
                 guard !hideButtonTwo else { return }
                 applyStepper(with: 1)
+                }
             }
+            .foregroundColor(.white)
             
         }
         .font(.title)
@@ -73,7 +91,7 @@ struct StepperButtons: View {
         
         if selectedNum == 2 {
             hideButtonOne = true
-        }else if selectedNum == 11{
+        }else if selectedNum == 12{
             hideButtonTwo = true
         }else{
             hideButtonOne = false
@@ -86,7 +104,7 @@ struct Buttons_Preview: PreviewProvider {
     static var previews: some View {
         //        ProgressButtons(message: "NEXT ->", color: .green)
         VStack(spacing: 30){
-            StepperButtons(stepDown: 4, selectedNum: 5, stepUp: 6)
+            StepperButtons()
             ChoiceButtons(message: "4")
             ChoiceButtons(message: "6")
             ChoiceButtons(message: "19")
