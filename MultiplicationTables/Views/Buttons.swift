@@ -12,7 +12,7 @@ struct ProgressButtons: View {
     var color: Color
     var body: some View {
         Button(message) {
-            // functions goes here
+            // functions goes here?
         }
         .font(.title.bold())
         .padding(30)
@@ -23,8 +23,27 @@ struct ProgressButtons: View {
     }
 }
 
-struct ProgressButtons_Preview: PreviewProvider {
+struct ChoiceButtons: View {
+    var message: String
+    var body: some View {
+        Button(message){
+            // return text?
+        }
+        .font(.title.bold())
+        .padding(30)
+        .frame(width: 150, height: 75)
+        .background(.yellow)
+    }
+}
+
+
+struct Buttons_Preview: PreviewProvider {
     static var previews: some View {
-        ProgressButtons(message: "NEXT ->", color: .green)
+//        ProgressButtons(message: "NEXT ->", color: .green)
+        VStack(spacing: 30){
+            ChoiceButtons(message: "4")
+            ChoiceButtons(message: "6")
+            ChoiceButtons(message: "19")
+        }
     }
 }
