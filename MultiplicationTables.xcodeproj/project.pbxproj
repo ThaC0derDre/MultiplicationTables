@@ -12,6 +12,8 @@
 		3148111527F1879E00643DCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3148111427F1879E00643DCE /* Assets.xcassets */; };
 		3148111827F1879E00643DCE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3148111727F1879E00643DCE /* Preview Assets.xcassets */; };
 		3148112027F1881000643DCE /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3148111F27F1881000643DCE /* Buttons.swift */; };
+		3148112427F24C4600643DCE /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3148112327F24C4600643DCE /* Labels.swift */; };
+		3148112727F26CE400643DCE /* SettingsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3148112627F26CE400643DCE /* SettingsMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		3148111427F1879E00643DCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3148111727F1879E00643DCE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3148111F27F1881000643DCE /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		3148112327F24C4600643DCE /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
+		3148112627F26CE400643DCE /* SettingsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,9 +77,27 @@
 		3148111E27F1880200643DCE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3148112527F26C8900643DCE /* ViewControllers */,
+				3148112227F24C3300643DCE /* Labels */,
 				3148111F27F1881000643DCE /* Buttons.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3148112227F24C3300643DCE /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				3148112327F24C4600643DCE /* Labels.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		3148112527F26C8900643DCE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3148112627F26CE400643DCE /* SettingsMenu.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,7 +171,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3148112027F1881000643DCE /* Buttons.swift in Sources */,
+				3148112727F26CE400643DCE /* SettingsMenu.swift in Sources */,
 				3148111327F1879D00643DCE /* ContentView.swift in Sources */,
+				3148112427F24C4600643DCE /* Labels.swift in Sources */,
 				3148111127F1879D00643DCE /* MultiplicationTablesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
