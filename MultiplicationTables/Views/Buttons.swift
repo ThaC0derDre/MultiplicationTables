@@ -7,46 +7,44 @@
 
 import SwiftUI
 
-struct ProgressButtons: View {
-    var message: String
-    var color: Color
-    var body: some View {
-        Button(message) {
-            // functions goes here?
+    struct ProgressButtons: View {
+        var message: String
+        var color: Color
+        var body: some View {
+            Button(message) {
+                // functions goes here?
+            }
+            .font(.title.bold())
+            .padding(30)
+            .frame(width: 300, height: 75)
+            .background(color)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+            .shadow(radius: 5)
         }
-        .font(.title.bold())
-        .padding(30)
-        .frame(width: 300, height: 75)
-        .background(color)
-        .foregroundColor(.white)
-        .cornerRadius(10)
-        .shadow(radius: 5)
     }
-}
 
 
-struct QuestionButtons: View {
-    @Binding var selected: Int
-    var numbers = [5,10,15,20]
-    var body: some View {
-        HStack(spacing: 20){
-            ForEach(numbers, id: \.self){ number in
-                Button("\(number)"){
-                    withAnimation {
-                        selected = number
+    struct QuestionButtons: View {
+        @Binding var selected: Int
+        var numbers = [5,10,15,20]
+        var body: some View {
+            HStack(spacing: 20){
+                ForEach(numbers, id: \.self){ number in
+                    Button("\(number)"){
+                        withAnimation {
+                            selected = number
+                        }
                     }
+                            .frame(width: 60, height: 60)
+                            .background(selected == number ? .green : .teal)
+                            .foregroundColor(.black)
+                            .cornerRadius(10)
+                            .shadow(radius: 5)
                 }
-                        .frame(width: 60, height: 60)
-                        .background(selected == number ? .green : .teal)
-                        .foregroundColor(.black)
-                        .cornerRadius(10)
-                        .shadow(radius: 5)
-                
-                
             }
         }
     }
-}
     
     
     struct ChoiceButtons: View {
@@ -64,6 +62,7 @@ struct QuestionButtons: View {
         }
     }
     
+
     struct StepperButtons: View {
         @State private var stepDown     = 2
         @Binding var selectedNum: Int
@@ -137,6 +136,7 @@ struct QuestionButtons: View {
         }
     }
     
+
     struct Buttons_Preview: PreviewProvider {
         static var previews: some View {
             VStack(spacing: 30){

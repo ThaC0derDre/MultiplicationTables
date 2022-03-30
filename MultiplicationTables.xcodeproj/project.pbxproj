@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3114F86327F3E0A20099C6FE /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3114F86227F3E0A20099C6FE /* ChallengeView.swift */; };
+		3114F86627F4A5560099C6FE /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3114F86527F4A5560099C6FE /* Questions.swift */; };
 		3148111127F1879D00643DCE /* MultiplicationTablesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3148111027F1879D00643DCE /* MultiplicationTablesApp.swift */; };
 		3148111327F1879D00643DCE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3148111227F1879D00643DCE /* ContentView.swift */; };
 		3148111527F1879E00643DCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3148111427F1879E00643DCE /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3114F86227F3E0A20099C6FE /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
+		3114F86527F4A5560099C6FE /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
 		3148110D27F1879D00643DCE /* MultiplicationTables.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplicationTables.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3148111027F1879D00643DCE /* MultiplicationTablesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationTablesApp.swift; sourceTree = "<group>"; };
 		3148111227F1879D00643DCE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +42,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3114F86427F4A5230099C6FE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3114F86527F4A5560099C6FE /* Questions.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		3148110427F1879D00643DCE = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +69,7 @@
 		3148110F27F1879D00643DCE /* MultiplicationTables */ = {
 			isa = PBXGroup;
 			children = (
+				3114F86427F4A5230099C6FE /* Models */,
 				3148111E27F1880200643DCE /* Views */,
 				3148111027F1879D00643DCE /* MultiplicationTablesApp.swift */,
 				3148111227F1879D00643DCE /* ContentView.swift */,
@@ -96,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				3148112627F26CE400643DCE /* SettingsMenu.swift */,
+				3114F86227F3E0A20099C6FE /* ChallengeView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -172,6 +186,8 @@
 			files = (
 				3148112027F1881000643DCE /* Buttons.swift in Sources */,
 				3148112727F26CE400643DCE /* SettingsMenu.swift in Sources */,
+				3114F86327F3E0A20099C6FE /* ChallengeView.swift in Sources */,
+				3114F86627F4A5560099C6FE /* Questions.swift in Sources */,
 				3148111327F1879D00643DCE /* ContentView.swift in Sources */,
 				3148112427F24C4600643DCE /* Labels.swift in Sources */,
 				3148111127F1879D00643DCE /* MultiplicationTablesApp.swift in Sources */,

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsMenu: View {
     @State var userReady                = false
-    @State var questionButton           = 5
+    @State var questionAmount           = 5
     @State private var stepperAmount    = 3
     var body: some View {
         VStack{
@@ -17,7 +17,7 @@ struct SettingsMenu: View {
             StepperButtons(selectedNum: $stepperAmount)
             Spacer()
             Labels(titleLabel: "How Many Questions?")
-            QuestionButtons(selected: $questionButton)
+            QuestionButtons(selected: $questionAmount)
             Spacer()
             ProgressButtons(message: "LET'S GO! 💪🏼", color:.green)
                 .padding(30)

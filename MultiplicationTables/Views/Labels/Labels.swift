@@ -16,8 +16,33 @@ struct Labels: View {
     }
 }
 
+struct GameQuestionLabel: View {
+    var problemToSolve  = ["2 x 2"]
+    var body: some View {
+        VStack{
+            
+            Text("What is")
+                .multilineTextAlignment(.center)
+                
+            Text("\(problemToSolve[1]) = ?")
+                .font(.largeTitle.weight(.heavy))
+                .multilineTextAlignment(.center)
+            //Change font family
+                
+        
+        }
+        .font(.largeTitle)
+            .frame(width: 300, height: 150, alignment: .center)
+    }
+}
+
+
 struct Labels_Previews: PreviewProvider {
     static var previews: some View {
-        Labels(titleLabel: "How many questions?")
+        VStack{
+//        Labels(titleLabel: "How many questions?")
+            
+        GameQuestionLabel()
+        }
     }
 }
