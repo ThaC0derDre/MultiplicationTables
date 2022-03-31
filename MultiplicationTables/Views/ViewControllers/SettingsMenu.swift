@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct SettingsMenu: View {
-    @State var userReady                = false
-    @State var questionAmount           = 5
-    @State private var stepperAmount    = 3
+    @StateObject private var settingsData   = SettingsData()
+    @State private var showChallengeView    = false
     var body: some View {
         VStack{
             Labels(titleLabel: "Select Times Table")
-            StepperButtons(selectedNum: $stepperAmount)
+            StepperButtons()
             Spacer()
             Labels(titleLabel: "How Many Questions?")
-            QuestionButtons(selected: $questionAmount)
+            QuestionButtons()
             Spacer()
             ProgressButtons(message: "LET'S GO! 💪🏼", color:.green)
                 .padding(30)

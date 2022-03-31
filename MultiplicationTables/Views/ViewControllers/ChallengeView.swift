@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ChallengeView: View {
-    @State private var questionArray = ["2 x 2"]
     
     var body: some View {
-        VStack{
-            GameQuestionLabel(problemToSolve: questionArray)
+        NavigationView{
+            VStack{
+                GameQuestionLabel()
+            }
         }
     }
 }

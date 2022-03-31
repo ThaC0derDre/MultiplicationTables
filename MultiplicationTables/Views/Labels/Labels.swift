@@ -17,14 +17,18 @@ struct Labels: View {
 }
 
 struct GameQuestionLabel: View {
-    var problemToSolve  = ["2 x 2"]
+    @State private var questions        = Equations().equations
+    @State private var correctAnswers   = Equations().correctAnswers
+    @State private var choices          = Equations().multipleChoice
+    @State private var questionNumber   = 1
+    
     var body: some View {
         VStack{
             
             Text("What is")
                 .multilineTextAlignment(.center)
                 
-            Text("\(problemToSolve[1]) = ?")
+            Text("\(questions[questionNumber])")
                 .font(.largeTitle.weight(.heavy))
                 .multilineTextAlignment(.center)
             //Change font family

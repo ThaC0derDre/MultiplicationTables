@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+// Currently trying to pass data from button to create equations
+
+
 struct ContentView: View {
     var body: some View {
         ZStack{

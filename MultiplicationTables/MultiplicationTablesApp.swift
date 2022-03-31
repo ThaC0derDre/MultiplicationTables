@@ -11,7 +11,9 @@ import SwiftUI
 struct MultiplicationTablesApp: App {
     var body: some Scene {
         WindowGroup {
+            NavigationView{
             SettingsMenu()
+            }
         }
     }
 }
