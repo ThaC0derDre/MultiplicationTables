@@ -8,17 +8,19 @@
 import Foundation
 import SwiftUI
 
-struct Equations {
+final class Equations: ObservableObject {
     
-    @StateObject private var settingsData   = SettingsData()
-    @State private var numsToTwelve         = Array(0...12)
-    @State var correctAnswers               = Array<Int>()
-    @State var equations                    = Array<String>()
-    @State var multipleChoice               = Array<[Int]>()
+    @StateObject private var settingsData       = SettingsData()
+    @State var numsToTwelve                 = Array(0...12)
+    @Published var correctAnswers               = Array<Int>()
+    @Published var equations                    = Array<String>()
+    @Published var multipleChoice               = Array<[Int]>()
     
+init(){
+        generateEquations()
+    }
     
-    
-    mutating func generateEquations(){
+    func generateEquations(){
         for _ in 0..<settingsData.questionAmount {
             if let randNumb    = numsToTwelve.randomElement(){
                 let anEquation = ("\(randNumb) x \(settingsData.stepperAmount) = ?")
@@ -28,6 +30,7 @@ struct Equations {
                 equations.append(String(anEquation))
             }
         }
+        print("generated")
     }
     
     func checkAnswer(usersAnswer: Int) -> Bool {
@@ -41,7 +44,7 @@ struct Equations {
         
     }
     
-    mutating func newQuiz(){
+    func newQuiz(){
         equations = []
         generateEquations()
     }
@@ -52,11 +55,11 @@ struct Equations {
             for i in 1..<correct {
                 choices.append(correct - i)
             }
-            for i in (correct + 1)...24 {
+            for i in (correct + 1)...50 {
                 choices.append(i)
             }
         }else{
-            for i in (correct + 1)...24 {
+            for i in (correct + 1)...50 {
                 choices.append(i)
             }
         }

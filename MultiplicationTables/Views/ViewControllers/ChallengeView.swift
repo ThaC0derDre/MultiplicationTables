@@ -13,8 +13,12 @@ struct ChallengeView: View {
         NavigationView{
             VStack{
                 GameQuestionLabel()
+                ChoiceButtons(message: "2")
+                ChoiceButtons(message: "3")
+                ChoiceButtons(message: "4")
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

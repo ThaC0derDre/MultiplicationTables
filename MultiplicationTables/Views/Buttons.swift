@@ -10,9 +10,15 @@ import SwiftUI
 struct ProgressButtons: View {
     var message: String
     var color: Color
+    @State var quizBegan                    = false
+    @StateObject private var eq             = Equations()
     @State private var showChallengeScreen  = false
+    
     var body: some View {
         Button(message) {
+            if !quizBegan{
+            eq.generateEquations()
+            }
             showChallengeScreen = true
         }
         .font(.title.bold())
@@ -119,6 +125,7 @@ struct StepperButtons: View {
         }
         Text("Ex: 2 x 2")
     }
+    
     
     func applyStepper(with number: Int){
         

@@ -72,8 +72,8 @@
 		3148110F27F1879D00643DCE /* MultiplicationTables */ = {
 			isa = PBXGroup;
 			children = (
-				3114F86427F4A5230099C6FE /* Models */,
 				3148111E27F1880200643DCE /* Views */,
+				3114F86427F4A5230099C6FE /* Models */,
 				3148111027F1879D00643DCE /* MultiplicationTablesApp.swift */,
 				3148111227F1879D00643DCE /* ContentView.swift */,
 				3148111427F1879E00643DCE /* Assets.xcassets */,

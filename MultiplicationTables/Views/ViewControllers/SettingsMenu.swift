@@ -10,7 +10,9 @@ import SwiftUI
 struct SettingsMenu: View {
     @StateObject private var settingsData   = SettingsData()
     @State private var showChallengeView    = false
+    
     var body: some View {
+        
         VStack{
             Labels(titleLabel: "Select Times Table")
             StepperButtons()

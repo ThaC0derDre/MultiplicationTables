@@ -20,7 +20,7 @@ struct GameQuestionLabel: View {
     @State private var questions        = Equations().equations
     @State private var correctAnswers   = Equations().correctAnswers
     @State private var choices          = Equations().multipleChoice
-    @State private var questionNumber   = 1
+    @State private var questionNumber   = 0
     
     var body: some View {
         VStack{
