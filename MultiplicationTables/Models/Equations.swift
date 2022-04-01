@@ -8,29 +8,33 @@
 import Foundation
 import SwiftUI
 
-final class Equations: ObservableObject {
+struct Equations {
+    var correctAnswers           = Array<Int>()
+    var equations                = Array<String>()
+    var multipleChoice           = Array<[Int]>()
     
-    @StateObject private var settingsData       = SettingsData()
-    @State var numsToTwelve                 = Array(0...12)
-    @Published var correctAnswers               = Array<Int>()
-    @Published var equations                    = Array<String>()
-    @Published var multipleChoice               = Array<[Int]>()
+}
+
+final class EquationModel: ObservableObject {
     
-init(){
-        generateEquations()
-    }
+    @Published var settingsData: SettingsData   = .init()
+    @Published var eq: Equations                = .init()
+    @State private var numsToTwelve             = Array(0...12)
     
-    func generateEquations(){
-        for _ in 0..<settingsData.questionAmount {
+    
+    func generateEquations(qAmount: Int, stepperAmount: Int ){
+        print("func triggered, stepper amount: \(stepperAmount)")
+        for _ in 0..<qAmount {
             if let randNumb    = numsToTwelve.randomElement(){
-                let anEquation = ("\(randNumb) x \(settingsData.stepperAmount) = ?")
-                let correctAnswer = randNumb * settingsData.stepperAmount
-                correctAnswers.append(correctAnswer)
-                multipleChoice.append(choices(correct: correctAnswer))
-                equations.append(String(anEquation))
+                let anEquation = ("\(randNumb) x \(stepperAmount) = ?")
+                let correctAnswer = randNumb * stepperAmount
+                eq.correctAnswers.append(correctAnswer)
+                eq.multipleChoice.append(choices(correct: correctAnswer))
+                eq.equations.append(String(anEquation))
             }
+            print("\(eq.equations)")
         }
-        print("generated")
+        print("generatedEquations with eqs being: \(eq.equations)")
     }
     
     func checkAnswer(usersAnswer: Int) -> Bool {
@@ -44,9 +48,10 @@ init(){
         
     }
     
-    func newQuiz(){
-        equations = []
-        generateEquations()
+    func newQuiz(qAmount: Int, stepperAmount: Int){
+        eq.equations = []
+        generateEquations(qAmount: qAmount, stepperAmount: stepperAmount)
+        print("new quiz")
     }
     
     func choices(correct: Int) -> Array<Int> {
@@ -55,7 +60,7 @@ init(){
             for i in 1..<correct {
                 choices.append(correct - i)
             }
-            for i in (correct + 1)...50 {
+            for i in (correct + 1)...62 {
                 choices.append(i)
             }
         }else{

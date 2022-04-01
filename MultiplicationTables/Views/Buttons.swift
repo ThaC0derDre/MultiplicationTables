@@ -11,15 +11,15 @@ struct ProgressButtons: View {
     var message: String
     var color: Color
     @State var quizBegan                    = false
-    @StateObject private var eq             = Equations()
-    @State private var showChallengeScreen  = false
+    @ObservedObject var eq: EquationModel
+    @State private var showLoadingScreen    = false
     
     var body: some View {
         Button(message) {
-            if !quizBegan{
-            eq.generateEquations()
-            }
-            showChallengeScreen = true
+            
+            eq.generateEquations(qAmount: eq.settingsData.questionAmount, stepperAmount: eq.settingsData.stepperAmount)
+            
+            showLoadingScreen = true
         }
         .font(.title.bold())
         .padding(30)
@@ -29,8 +29,8 @@ struct ProgressButtons: View {
         .cornerRadius(10)
         .shadow(radius: 5)
         NavigationLink(destination:
-                        ChallengeView(),
-                       isActive: self.$showChallengeScreen) {
+                        LoadingScreenView(eqm: eq),
+                       isActive: self.$showLoadingScreen) {
             EmptyView()
         }.hidden()
     }
@@ -39,18 +39,18 @@ struct ProgressButtons: View {
 
 
 struct QuestionButtons: View {
-    @StateObject private var settingsData   = SettingsData()
+    @ObservedObject var eq: EquationModel
     var numbers = [5,10,15,20]
     var body: some View {
         HStack(spacing: 20){
             ForEach(numbers, id: \.self){ number in
                 Button("\(number)"){
                     withAnimation {
-                        settingsData.questionAmount = number
+                        eq.settingsData.questionAmount = number
                     }
                 }
                 .frame(width: 60, height: 60)
-                .background(settingsData.questionAmount == number ? .green : .teal)
+                .background(eq.settingsData.questionAmount == number ? .green : .teal)
                 .foregroundColor(.black)
                 .cornerRadius(10)
                 .shadow(radius: 5)
@@ -77,11 +77,11 @@ struct ChoiceButtons: View {
 
 
 struct StepperButtons: View {
-    @StateObject private var settingsData   = SettingsData()
-    @State private var stepDown     = 2
-    @State private var stepUp       = 4
-    @State private var hideButtonOne    = false
-    @State private var hideButtonTwo    = false
+    @ObservedObject var eq: EquationModel
+    @State private var stepDown             = 2
+    @State private var stepUp               = 4
+    @State private var hideButtonOne        = false
+    @State private var hideButtonTwo        = false
     
     var body: some View {
         VStack{
@@ -102,7 +102,7 @@ struct StepperButtons: View {
                 }
                 
                 
-                Text("x\(settingsData.stepperAmount)")
+                Text("x\(eq.settingsData.stepperAmount)")
                     .font(.largeTitle)
                 ZStack{
                     if !hideButtonTwo {
@@ -130,12 +130,12 @@ struct StepperButtons: View {
     func applyStepper(with number: Int){
         
         stepUp += number
-        settingsData.stepperAmount += number
+        eq.settingsData.stepperAmount += number
         stepDown += number
         withAnimation {
-            if settingsData.stepperAmount == 2 {
+            if eq.settingsData.stepperAmount == 2 {
                 hideButtonOne = true
-            }else if settingsData.stepperAmount == 12{
+            }else if eq.settingsData.stepperAmount == 12{
                 hideButtonTwo = true
             }else{
                 hideButtonOne = false
@@ -149,9 +149,9 @@ struct StepperButtons: View {
 struct Buttons_Preview: PreviewProvider {
     static var previews: some View {
         VStack(spacing: 30){
-            StepperButtons()
+            StepperButtons(eq: .init())
             ChoiceButtons(message: "4")
-            ProgressButtons(message: "NEXT ->", color: .green)
+            ProgressButtons(message: "NEXT ->", color: .green, eq: .init())
         }
     }
 }

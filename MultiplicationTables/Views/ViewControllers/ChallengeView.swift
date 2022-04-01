@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct ChallengeView: View {
+    @ObservedObject var eqm: EquationModel
+    @State var questionNumber       = 0
     
     var body: some View {
         NavigationView{
-            VStack{
-                GameQuestionLabel()
+            LazyVStack{
+                GameQuestionLabel(eqm: eqm, questionNumber: questionNumber)
                 ChoiceButtons(message: "2")
                 ChoiceButtons(message: "3")
                 ChoiceButtons(message: "4")
@@ -24,6 +26,6 @@ struct ChallengeView: View {
 
 struct ChallengeView_Previews: PreviewProvider {
     static var previews: some View {
-        ChallengeView()
+        ChallengeView(eqm: .init())
     }
 }

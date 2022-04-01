@@ -8,19 +8,17 @@
 import SwiftUI
 
 struct SettingsMenu: View {
-    @StateObject private var settingsData   = SettingsData()
-    @State private var showChallengeView    = false
-    
+    @StateObject var eqm    = EquationModel()
     var body: some View {
         
         VStack{
             Labels(titleLabel: "Select Times Table")
-            StepperButtons()
+            StepperButtons(eq: eqm)
             Spacer()
             Labels(titleLabel: "How Many Questions?")
-            QuestionButtons()
+            QuestionButtons(eq: eqm)
             Spacer()
-            ProgressButtons(message: "LET'S GO! 💪🏼", color:.green)
+            ProgressButtons(message: "LET'S GO! 💪🏼", color:.green, eq: eqm)
                 .padding(30)
         }
     }

@@ -17,22 +17,19 @@ struct Labels: View {
 }
 
 struct GameQuestionLabel: View {
-    @State private var questions        = Equations().equations
-    @State private var correctAnswers   = Equations().correctAnswers
-    @State private var choices          = Equations().multipleChoice
-    @State private var questionNumber   = 0
+    @ObservedObject var eqm: EquationModel
+    @State var questionNumber: Int
     
     var body: some View {
-        VStack{
+        LazyVStack{
             
             Text("What is")
                 .multilineTextAlignment(.center)
                 
-            Text("\(questions[questionNumber])")
+            Text("\(eqm.eq.equations[questionNumber])")
                 .font(.largeTitle.weight(.heavy))
                 .multilineTextAlignment(.center)
             //Change font family
-                
         
         }
         .font(.largeTitle)
@@ -46,7 +43,7 @@ struct Labels_Previews: PreviewProvider {
         VStack{
 //        Labels(titleLabel: "How many questions?")
             
-        GameQuestionLabel()
+            GameQuestionLabel(eqm: .init(), questionNumber: 0)
         }
     }
 }

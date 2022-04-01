@@ -7,11 +7,14 @@
 
 import Foundation
 
-final class SettingsData: ObservableObject {
+struct SettingsData {
     
-    
-    @Published var questionAmount   = 5
-    @Published var stepperAmount    = 3
-    @Published var userChoice       = 3
-    @Published var userReady        = false
+     var questionAmount   = 5
+     var stepperAmount    = 3 {
+        didSet{
+            print("StepperAmount = \(stepperAmount)")
+        }
+    }
+     var userChoice       = 3
+     var userReady        = false
 }
