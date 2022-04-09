@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var questionAmount   = 5
     //Stepper Properties
     @State private var minusOne         = 2
     @State private var hideMinus        = false
@@ -16,9 +15,13 @@ struct ContentView: View {
     @State private var plusOne          = 4
     @State private var hidePlus         = false
     
+    // Question Button Props
+    @State private var isSelected       = 5
+    private let qAmounts                = [5, 10, 15]
+    @State private var questionAmount   = 5
+    
     @State private var showQuiz         = false
     @State var quiz = [Quiz]()
-    private let qArray = [5, 10, 15]
     var body: some View {
         
         NavigationView{
@@ -102,44 +105,27 @@ struct ContentView: View {
                     .font(.largeTitle.bold())
                 
                 HStack{
-                    Button{
-                        //
-                    } label: {
-                        Text("5")
-                            .font(.largeTitle.bold())
-                            .padding(.horizontal)
-                    }
-                    
-                    Button{
-                        //
-                    } label: {
-                        Text("10")
-                            .font(.largeTitle.bold())
-                            .padding(.horizontal)
-                    }
-                    
-                    Button{
-                        //
-                    } label: {
-                        Text("15")
-                            .font(.largeTitle.bold())
-                            .padding(.horizontal)
-                    }
-                }
-                
-                
-                HStack{
-                    Text("How many questions?")
-                        .padding(.horizontal)
-                    Spacer()
-                    
-                    Picker("Question Amount", selection: $questionAmount) {
-                        ForEach(qArray, id:\.self) {
-                            Text("\($0)")
+                    ForEach(qAmounts, id: \.self){ number in
+                        Button("\(number)"){
+                            withAnimation{
+                                    isSelected = number
+                                questionAmount = number
+                            }
                         }
+                        .font(.title.bold())
+                        .frame(width: 70, height: 70)
+                        .background(isSelected == number ? .blue : .white)
+                        .foregroundColor(isSelected == number ? .white : .blue)
+                        .overlay(
+                        RoundedRectangle(cornerRadius: 7)
+                            .stroke(.blue, lineWidth: 3)
+                        )
+                        .padding(.horizontal, 10)
                     }
-                    .padding(.horizontal)
                 }
+                
+                
+                
                 Spacer()
                 Button("Let's Go! 💪🏼"){
                     generateQuestions(questionsAmount: questionAmount, timesTable: timesTable)
