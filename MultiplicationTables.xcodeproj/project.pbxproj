@@ -7,32 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3107BEF927F4BB5300C95D25 /* Equations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107BEF827F4BB5300C95D25 /* Equations.swift */; };
-		3107BEFB27F5520600C95D25 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107BEFA27F5520600C95D25 /* DataModel.swift */; };
-		3107BEFD27F6350C00C95D25 /* LoadingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3107BEFC27F6350C00C95D25 /* LoadingScreenView.swift */; };
-		3114F86327F3E0A20099C6FE /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3114F86227F3E0A20099C6FE /* ChallengeView.swift */; };
 		3148111127F1879D00643DCE /* MultiplicationTablesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3148111027F1879D00643DCE /* MultiplicationTablesApp.swift */; };
 		3148111327F1879D00643DCE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3148111227F1879D00643DCE /* ContentView.swift */; };
 		3148111527F1879E00643DCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3148111427F1879E00643DCE /* Assets.xcassets */; };
 		3148111827F1879E00643DCE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3148111727F1879E00643DCE /* Preview Assets.xcassets */; };
-		3148112027F1881000643DCE /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3148111F27F1881000643DCE /* Buttons.swift */; };
-		3148112427F24C4600643DCE /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3148112327F24C4600643DCE /* Labels.swift */; };
-		3148112727F26CE400643DCE /* SettingsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3148112627F26CE400643DCE /* SettingsMenu.swift */; };
+		319B4CA7280015E700B3D6E8 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B4CA6280015E700B3D6E8 /* QuizView.swift */; };
+		31F37FF327FFFF4500EC22CF /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F37FF227FFFF4500EC22CF /* Quiz.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3107BEF827F4BB5300C95D25 /* Equations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equations.swift; sourceTree = "<group>"; };
-		3107BEFA27F5520600C95D25 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		3107BEFC27F6350C00C95D25 /* LoadingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenView.swift; sourceTree = "<group>"; };
-		3114F86227F3E0A20099C6FE /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 		3148110D27F1879D00643DCE /* MultiplicationTables.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplicationTables.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3148111027F1879D00643DCE /* MultiplicationTablesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationTablesApp.swift; sourceTree = "<group>"; };
 		3148111227F1879D00643DCE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3148111427F1879E00643DCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3148111727F1879E00643DCE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3148111F27F1881000643DCE /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
-		3148112327F24C4600643DCE /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
-		3148112627F26CE400643DCE /* SettingsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenu.swift; sourceTree = "<group>"; };
+		319B4CA6280015E700B3D6E8 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		31F37FF227FFFF4500EC22CF /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,15 +36,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3114F86427F4A5230099C6FE /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				3107BEF827F4BB5300C95D25 /* Equations.swift */,
-				3107BEFA27F5520600C95D25 /* DataModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		3148110427F1879D00643DCE = {
 			isa = PBXGroup;
 			children = (
@@ -74,12 +55,12 @@
 		3148110F27F1879D00643DCE /* MultiplicationTables */ = {
 			isa = PBXGroup;
 			children = (
-				3148111E27F1880200643DCE /* Views */,
-				3114F86427F4A5230099C6FE /* Models */,
 				3148111027F1879D00643DCE /* MultiplicationTablesApp.swift */,
 				3148111227F1879D00643DCE /* ContentView.swift */,
+				319B4CA6280015E700B3D6E8 /* QuizView.swift */,
 				3148111427F1879E00643DCE /* Assets.xcassets */,
 				3148111627F1879E00643DCE /* Preview Content */,
+				31F37FF227FFFF4500EC22CF /* Quiz.swift */,
 			);
 			path = MultiplicationTables;
 			sourceTree = "<group>";
@@ -90,34 +71,6 @@
 				3148111727F1879E00643DCE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		3148111E27F1880200643DCE /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				3148112527F26C8900643DCE /* ViewControllers */,
-				3148112227F24C3300643DCE /* Labels */,
-				3148111F27F1881000643DCE /* Buttons.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		3148112227F24C3300643DCE /* Labels */ = {
-			isa = PBXGroup;
-			children = (
-				3148112327F24C4600643DCE /* Labels.swift */,
-			);
-			path = Labels;
-			sourceTree = "<group>";
-		};
-		3148112527F26C8900643DCE /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				3148112627F26CE400643DCE /* SettingsMenu.swift */,
-				3114F86227F3E0A20099C6FE /* ChallengeView.swift */,
-				3107BEFC27F6350C00C95D25 /* LoadingScreenView.swift */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,15 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3148112027F1881000643DCE /* Buttons.swift in Sources */,
-				3107BEF927F4BB5300C95D25 /* Equations.swift in Sources */,
-				3148112727F26CE400643DCE /* SettingsMenu.swift in Sources */,
-				3114F86327F3E0A20099C6FE /* ChallengeView.swift in Sources */,
 				3148111327F1879D00643DCE /* ContentView.swift in Sources */,
-				3107BEFD27F6350C00C95D25 /* LoadingScreenView.swift in Sources */,
-				3107BEFB27F5520600C95D25 /* DataModel.swift in Sources */,
-				3148112427F24C4600643DCE /* Labels.swift in Sources */,
+				319B4CA7280015E700B3D6E8 /* QuizView.swift in Sources */,
 				3148111127F1879D00643DCE /* MultiplicationTablesApp.swift in Sources */,
+				31F37FF327FFFF4500EC22CF /* Quiz.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
