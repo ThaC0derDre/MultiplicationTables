@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var timesTable       = 2
     @State private var questionAmount   = 5
+    //Stepper Properties
+    @State private var minusOne         = 2
+    @State private var hideMinus        = false
+    @State private var timesTable       = 3
+    @State private var plusOne          = 4
+    @State private var hidePlus         = false
+    
     @State private var showQuiz         = false
     @State var quiz = [Quiz]()
     private let qArray = [5, 10, 15]
@@ -18,22 +24,73 @@ struct ContentView: View {
         NavigationView{
             // Menu Setup
             VStack{
-                Text(timesTable == 7 ? "Ex. \(timesTable) X 4": "Ex. \(timesTable) X 7")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
                 
+                Text("Choose Times Table")
+                    .font(.largeTitle.bold())
+                    .padding(.bottom)
                 HStack{
-                    Text("Select Times-Table")
-                        .padding(.horizontal)
-                    Spacer()
-                    
-                    Picker("TimesTable", selection: $timesTable) {
-                        ForEach(2..<13, id: \.self){ number in
-                            Text("x\(number)")
+                    // Cute Stepper
+                    Button{
+                        if timesTable == 2 {return}
+                        hidePlus    = false
+                        hideMinus   = false
+                        timesTable -= 1
+                        plusOne -= 1
+                        minusOne -= 1
+                        if timesTable == 2 {
+                            hideMinus = true
+                        }
+                        
+                    } label: {
+                        ZStack{
+                            Image(systemName: "arrowtriangle.left.fill")
+                                .resizable()
+                                .frame(width: 63, height: 60)
+                            
+                                .foregroundColor(hideMinus ? .white : .blue)
+                                .padding(.horizontal, 7)
+                            
+                            Text("  \(minusOne)")
+                                .font(.title.bold())
+                                .foregroundColor(.white)
                         }
                     }
-                    .padding(.horizontal)
+                    Text("\(timesTable)")
+                        .font(.largeTitle.bold())
+                        .padding()
+                    Button{
+                        if timesTable == 12 {return}
+                        
+                        hidePlus    = false
+                        hideMinus   = false
+                        timesTable += 1
+                        minusOne += 1
+                        plusOne += 1
+                        if timesTable == 12 {
+                            hidePlus = true
+                        }
+                    } label: {
+                        ZStack{
+                            Image(systemName: "arrowtriangle.right.fill")
+                                .resizable()
+                                .frame(width: 63, height: 60)
+                                .foregroundColor(hidePlus ? .white : .blue)
+                                .padding(.horizontal, 7)
+                            
+                            Text("  \(plusOne)    .")
+                                .font(.title.bold())
+                                .foregroundColor(.white)
+                        }
+                    }
+                    
                 }
+                
+                
+                Text("Ex. \(timesTable) X 1")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .padding(.bottom)
+                
                 
                 // How Many Questions?
                 HStack{
