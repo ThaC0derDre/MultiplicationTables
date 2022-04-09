@@ -24,6 +24,7 @@ struct ContentView: View {
         NavigationView{
             // Menu Setup
             VStack{
+                //MARK: - TimesTable Stepper
                 
                 Text("Choose Times Table")
                     .font(.largeTitle.bold())
@@ -55,9 +56,11 @@ struct ContentView: View {
                                 .foregroundColor(.white)
                         }
                     }
+                    // selected number
                     Text("\(timesTable)")
                         .font(.largeTitle.bold())
                         .padding()
+                    
                     Button{
                         if timesTable == 12 {return}
                         
@@ -85,14 +88,46 @@ struct ContentView: View {
                     
                 }
                 
+                //MARK: - Example
                 
                 Text("Ex. \(timesTable) X 1")
                     .font(.caption)
                     .foregroundColor(.secondary)
                     .padding(.bottom)
                 
+                //MARK: - Question Amount
                 
                 // How Many Questions?
+                Text("How Many Questions?")
+                    .font(.largeTitle.bold())
+                
+                HStack{
+                    Button{
+                        //
+                    } label: {
+                        Text("5")
+                            .font(.largeTitle.bold())
+                            .padding(.horizontal)
+                    }
+                    
+                    Button{
+                        //
+                    } label: {
+                        Text("10")
+                            .font(.largeTitle.bold())
+                            .padding(.horizontal)
+                    }
+                    
+                    Button{
+                        //
+                    } label: {
+                        Text("15")
+                            .font(.largeTitle.bold())
+                            .padding(.horizontal)
+                    }
+                }
+                
+                
                 HStack{
                     Text("How many questions?")
                         .padding(.horizontal)
