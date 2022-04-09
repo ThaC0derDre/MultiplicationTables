@@ -11,7 +11,9 @@ struct QuizView: View {
     @State var timesTable: Int
     @State var qAmount: Int
     @State var quiz: [Quiz]
-    @State private var questionNumber = 0
+    @State private var questionNumber   = 0
+    @State private var score            = 0
+    @State private var flashRed         = false
     var body: some View {
         
         Text(quiz[questionNumber].question)
@@ -19,8 +21,10 @@ struct QuizView: View {
         
         
         ForEach(0..<3) { number in
-            Button("\(choiceGen(with: quiz[questionNumber].choices, for: number))"){
-                questionNumber += 1
+            let choice = choiceGen(with: quiz[questionNumber].choices, for: number)
+            Button("\(choice)"){
+                checkAnswer(userAnswer: choice)
+                
             }
             .font(.title.bold())
             .frame(width: 200, height: 75)
@@ -45,6 +49,19 @@ struct QuizView: View {
         let aChoice = choices[buttonNumber]
         return aChoice
     }
+    
+    // Check if answer is correct
+    func checkAnswer(userAnswer: Int){
+        if userAnswer == quiz[questionNumber].choices.correctAnswer{
+            score += 1
+            print("correct")
+        }else{
+            
+            print("incorrect!")
+        }
+        questionNumber += 1
+    }
+    
 }
 
 
