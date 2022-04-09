@@ -9,16 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     //Stepper Properties
-    @State private var minusOne         = 2
     @State private var hideMinus        = false
     @State private var timesTable       = 3
-    @State private var plusOne          = 4
     @State private var hidePlus         = false
     
     // Question Button Props
     @State private var isSelected       = 5
     private let qAmounts                = [5, 10, 15]
-    @State private var questionAmount   = 5
     
     @State private var showQuiz         = false
     @State var quiz = [Quiz]()
@@ -41,8 +38,6 @@ struct ContentView: View {
                     hidePlus    = false
                     hideMinus   = false
                     timesTable -= 1
-                    plusOne -= 1
-                    minusOne -= 1
                     if timesTable == 2 {
                         hideMinus = true
                     }
@@ -72,8 +67,6 @@ struct ContentView: View {
                     hidePlus    = false
                     hideMinus   = false
                     timesTable += 1
-                    minusOne += 1
-                    plusOne += 1
                     if timesTable == 12 {
                         hidePlus = true
                     }
@@ -111,7 +104,6 @@ struct ContentView: View {
                     Button("\(number)"){
                         withAnimation{
                             isSelected = number
-                            questionAmount = number
                         }
                     }
                     
@@ -131,7 +123,7 @@ struct ContentView: View {
             
             Spacer()
             Button("Let's Go! 💪🏼"){
-                generateQuestions(questionsAmount: questionAmount, timesTable: timesTable)
+                generateQuestions(questionsAmount: isSelected, timesTable: timesTable)
                 showQuiz.toggle()
             }
             .font(.title)
@@ -142,7 +134,7 @@ struct ContentView: View {
             .padding(.bottom, 40)
             
             NavigationLink("", isActive: $showQuiz){
-                QuizView(timesTable: timesTable, qAmount: questionAmount, quiz: quiz)
+                QuizView(timesTable: timesTable, qAmount: isSelected, quiz: quiz)
             }
             .navigationTitle("Multiply!")
             .navigationBarTitleDisplayMode(.inline)
@@ -154,12 +146,11 @@ struct ContentView: View {
     func generateQuestions(questionsAmount: Int, timesTable: Int){
         var aBunchOfNumbs = [1,2,3,4,5,6,7,8,9,10,11,12]
         aBunchOfNumbs.shuffle()
-        print(aBunchOfNumbs)
         
         var someNumb = [Int]()
         // generate random numbers to multiply against given timesTable
         for i in 1...questionsAmount{
-            if i < 13 {
+            if i < 12 {
                 someNumb.append(aBunchOfNumbs[i])
             }else {
                 // if more than 12, grab more random numbers until attain question amount.
