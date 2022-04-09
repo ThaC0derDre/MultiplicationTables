@@ -56,8 +56,8 @@ struct ContentView: View {
                             .foregroundColor(hideMinus ? .white : .blue)
                             .padding(.horizontal, 7)
                         
-                        Text("  \(minusOne)")
-                            .font(.title.bold())
+                        Text("  -")
+                            .font(.title)
                             .foregroundColor(.white)
                     }
                 }
@@ -85,8 +85,8 @@ struct ContentView: View {
                             .foregroundColor(hidePlus ? .white : .blue)
                             .padding(.horizontal, 7)
                         
-                        Text("  \(plusOne)    .")
-                            .font(.title.bold())
+                        Text("  +    .")
+                            .font(.title)
                             .foregroundColor(.white)
                     }
                 }
@@ -146,6 +146,7 @@ struct ContentView: View {
             }
             .navigationTitle("Multiply!")
             .navigationBarTitleDisplayMode(.inline)
+            .preferredColorScheme(.light)
             
         }
     }

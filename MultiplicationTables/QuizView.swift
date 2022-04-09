@@ -15,37 +15,22 @@ struct QuizView: View {
     var body: some View {
         
         Text(quiz[questionNumber].question)
+            .font(.largeTitle.bold())
         
-        Button("\(choiceGen(with: quiz[questionNumber].choices, for: 0))"){
-            questionNumber += 1
-        }
-        .font(.title.bold())
-        .frame(width: 200, height: 75)
-        .background(.blue)
-        .foregroundColor(.white)
-        .clipShape(Capsule())
-        .padding()
         
-        Button("\(choiceGen(with: quiz[questionNumber].choices, for: 1))"){
-            questionNumber += 1
-        }
-        .font(.title.bold())
+        ForEach(0..<3) { number in
+            Button("\(choiceGen(with: quiz[questionNumber].choices, for: number))"){
+                questionNumber += 1
+            }
+            .font(.title.bold())
             .frame(width: 200, height: 75)
             .background(.blue)
             .foregroundColor(.white)
             .clipShape(Capsule())
             .padding()
-        
-        
-        Button("\(choiceGen(with: quiz[questionNumber].choices, for: 2))"){
-            questionNumber += 1
         }
-        .font(.title.bold())
-        .frame(width: 200, height: 75)
-        .background(.blue)
-        .foregroundColor(.white)
-        .clipShape(Capsule())
-        .padding()
+        
+        
         
         .navigationTitle("\(timesTable)'s!")
         .navigationBarTitleDisplayMode(.inline)
@@ -66,6 +51,6 @@ struct QuizView: View {
     
 struct QuizView_Previews: PreviewProvider {
     static var previews: some View {
-        QuizView(timesTable: 3, qAmount: 3, quiz: [Quiz(question: "", choices: Choices(choice1: 1, choice2: 2, choice3: 3, correctAnswer: 3))])
+        QuizView(timesTable: 3, qAmount: 3, quiz: [Quiz(question: "What is 2x2?", choices: Choices(choice1: 1, choice2: 2, choice3: 3, correctAnswer: 3))])
     }
 }
