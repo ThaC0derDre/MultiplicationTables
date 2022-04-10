@@ -14,12 +14,17 @@ struct QuizView: View {
     @State private var questionNumber   = 0
     @State private var score            = 0
     @State private var flashRed         = false
+    @State private var showEndScreen    = false
     var body: some View {
         VStack{
             Text(quiz[questionNumber].question)
                 .font(.largeTitle.bold())
+                .padding(.bottom, 100)
             
+            //MARK: - Buttons
+
             
+            VStack{
             ForEach(0..<3) { number in
                 let choice = choiceGen(with: quiz[questionNumber].choices, for: number)
                 Button("\(choice)"){
@@ -32,13 +37,22 @@ struct QuizView: View {
                 .clipShape(Capsule())
                 .padding()
             }
+            }
+            .padding(.top, 100)
             .navigationTitle("\(timesTable)'s!")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
+            NavigationLink(isActive: $showEndScreen) {
+                EndScreenView(score: score, questionAmount: questionNumber, quiz: quiz, timesTable: timesTable, qAmount: qAmount)
+            } label: {
+                EmptyView()
+            }
+
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(flashRed ? .red : .white).ignoresSafeArea()
+        .preferredColorScheme(.light)
     }
     
     // somehow grab choices into array, shuffled. When called, grab specific
@@ -52,16 +66,24 @@ struct QuizView: View {
     func checkAnswer(userAnswer: Int){
         if userAnswer == quiz[questionNumber].choices.correctAnswer{
             score += 1
-            questionNumber += 1
+            if qAmount != (questionNumber + 1){
+                questionNumber += 1
+            }else{
+                showEndScreen.toggle()
+            }
         }else{
             withAnimation {
                 flashRed = true
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2){
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
                 withAnimation {
                     flashRed = false
                 }
-                questionNumber += 1
+                if qAmount != (questionNumber + 1){
+                    questionNumber += 1
+                }else{
+                    showEndScreen.toggle()
+                }
             }
         }
     }

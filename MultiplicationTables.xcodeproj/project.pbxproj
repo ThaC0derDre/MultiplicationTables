@@ -11,6 +11,7 @@
 		3148111327F1879D00643DCE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3148111227F1879D00643DCE /* ContentView.swift */; };
 		3148111527F1879E00643DCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3148111427F1879E00643DCE /* Assets.xcassets */; };
 		3148111827F1879E00643DCE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3148111727F1879E00643DCE /* Preview Assets.xcassets */; };
+		3161F2D12802319700770CD6 /* EndScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3161F2D02802319700770CD6 /* EndScreenView.swift */; };
 		319B4CA7280015E700B3D6E8 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B4CA6280015E700B3D6E8 /* QuizView.swift */; };
 		31F37FF327FFFF4500EC22CF /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F37FF227FFFF4500EC22CF /* Quiz.swift */; };
 /* End PBXBuildFile section */
@@ -21,6 +22,7 @@
 		3148111227F1879D00643DCE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3148111427F1879E00643DCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3148111727F1879E00643DCE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3161F2D02802319700770CD6 /* EndScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreenView.swift; sourceTree = "<group>"; };
 		319B4CA6280015E700B3D6E8 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		31F37FF227FFFF4500EC22CF /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +60,7 @@
 				3148111027F1879D00643DCE /* MultiplicationTablesApp.swift */,
 				3148111227F1879D00643DCE /* ContentView.swift */,
 				319B4CA6280015E700B3D6E8 /* QuizView.swift */,
+				3161F2D02802319700770CD6 /* EndScreenView.swift */,
 				3148111427F1879E00643DCE /* Assets.xcassets */,
 				3148111627F1879E00643DCE /* Preview Content */,
 				31F37FF227FFFF4500EC22CF /* Quiz.swift */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3161F2D12802319700770CD6 /* EndScreenView.swift in Sources */,
 				3148111327F1879D00643DCE /* ContentView.swift in Sources */,
 				319B4CA7280015E700B3D6E8 /* QuizView.swift in Sources */,
 				3148111127F1879D00643DCE /* MultiplicationTablesApp.swift in Sources */,
