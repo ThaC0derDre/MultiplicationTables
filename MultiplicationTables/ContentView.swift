@@ -139,7 +139,6 @@ struct ContentView: View {
             .navigationTitle("Multiply!")
             .navigationBarTitleDisplayMode(.inline)
             .preferredColorScheme(.light)
-            
         }
     }
     // Enter amount of Questions asked for, and TimesTable

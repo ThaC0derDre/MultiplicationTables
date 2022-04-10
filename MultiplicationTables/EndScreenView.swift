@@ -19,14 +19,35 @@ struct EndScreenView: View {
     var body: some View {
         VStack{
             // Message to change depending on
-            Text("Well done!")
-            Text("Your score: \(score) out of \(questionAmount + 1)")
+            Text("WELL DONE!")
+                .font(.largeTitle)
+                .padding([.top, .bottom], 30)
+            
+            Text("YOU GOT \(score) / \(questionAmount + 1) CORRECT")
+                .font(.title2)
+            
+            Spacer()
+            // Buttons
             Button("Retry"){
                 redoQuiz.toggle()
             }
+            .font(.title.bold())
+            .frame(width: 200, height: 75)
+            .background(.blue)
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+            .padding()
+            
+            
             Button("New Quiz"){
                 newQuiz.toggle()
             }
+            .font(.title.bold())
+            .frame(width: 200, height: 75)
+            .background(.blue)
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+            .padding()
             
             NavigationLink("", isActive: $redoQuiz){
                 QuizView(timesTable: timesTable, qAmount: qAmount, quiz: quiz)
