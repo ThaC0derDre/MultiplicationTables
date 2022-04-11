@@ -47,6 +47,7 @@
 		3148110427F1879D00643DCE = {
 			isa = PBXGroup;
 			children = (
+				3161F2D92804142D00770CD6 /* ReadMe.md */,
 				3148110F27F1879D00643DCE /* MultiplicationTables */,
 				3148110E27F1879D00643DCE /* Products */,
 			);
@@ -66,7 +67,6 @@
 				3148111027F1879D00643DCE /* MultiplicationTablesApp.swift */,
 				3148111227F1879D00643DCE /* ContentView.swift */,
 				319B4CA6280015E700B3D6E8 /* QuizView.swift */,
-				3161F2D92804142D00770CD6 /* ReadMe.md */,
 				3161F2D02802319700770CD6 /* EndScreenView.swift */,
 				3148111427F1879E00643DCE /* Assets.xcassets */,
 				3148111627F1879E00643DCE /* Preview Content */,
