@@ -8,3 +8,12 @@ App created with no help or tutorial videos. Hence why it looks so basic haha
 
 
 ![](https://media.giphy.com/media/NAphD9a9L50x1Qd2Au/giphy.gif)
+
+
+## TO DO
+
+
+
+* EndResults UI.
+
+* Add Timer to make things interesting.
