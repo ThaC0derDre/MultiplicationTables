@@ -48,12 +48,12 @@ struct ContentView: View {
                             .resizable()
                             .frame(width: 63, height: 60)
                         
-                            .foregroundColor(hideMinus ? .white : .blue)
+                            .foregroundColor(hideMinus ? Color(k.main) : Color(k.secondary))
                             .padding(.horizontal, 7)
                         
                         Text("  -")
                             .font(.title)
-                            .foregroundColor(.white)
+                            .foregroundColor(hideMinus ? Color(k.main) : .black)
                     }
                 }
                 // selected number
@@ -75,12 +75,18 @@ struct ContentView: View {
                         Image(systemName: "arrowtriangle.right.fill")
                             .resizable()
                             .frame(width: 63, height: 60)
-                            .foregroundColor(hidePlus ? .white : .blue)
+                            .foregroundColor(hidePlus ? Color(k.main) : Color(k.secondary))
                             .padding(.horizontal, 7)
                         
-                        Text("  +    .")
+                        HStack{
+                            // Right Button. Hstack to center +
+                        Text("  +    ")
                             .font(.title)
-                            .foregroundColor(.white)
+                            .foregroundColor(hidePlus ? Color(k.main) : .black)
+                            Text("   ")
+                                .font(.title)
+                                .foregroundColor(hidePlus ? Color(k.main) : .black)
+                        }
                     }
                 }
                 
@@ -89,6 +95,9 @@ struct ContentView: View {
             //MARK: - Example
             
             Text("Ex. \(timesTable) X 1")
+                .font(.caption)
+                .foregroundColor(.secondary)
+            Text("Ex. \(timesTable) X 4")
                 .font(.caption)
                 .foregroundColor(.secondary)
                 .padding(.bottom)
@@ -109,12 +118,13 @@ struct ContentView: View {
                     
                     .font(.title.bold())
                     .frame(width: 70, height: 70)
-                    .background(isSelected == number ? .blue : .white)
-                    .foregroundColor(isSelected == number ? .white : .blue)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 7)
-                            .stroke(.blue, lineWidth: 3)
-                    )
+                    .background(Color(k.secondary))
+                    .opacity(isSelected == number ? 1.0 : 0.35)
+                    .foregroundColor(.black)
+//                    .overlay(
+//                        RoundedRectangle(cornerRadius: 7)
+//                            .stroke(.white, lineWidth: 3)
+//                    )
                     .padding(.horizontal, 10)
                 }
             }
@@ -122,14 +132,14 @@ struct ContentView: View {
             
             
             Spacer()
-            Button("Let's Go! 💪🏼"){
+            Button("LETS GO! 💪🏼"){
                 generateQuestions(questionsAmount: isSelected, timesTable: timesTable)
                 showQuiz.toggle()
             }
             .font(.title)
             .frame(width: 200, height: 65)
-            .background(.blue)
-            .foregroundColor(Color(.white))
+            .background(Color(k.secondary))
+            .foregroundColor(Color(.black))
             .clipShape(Capsule())
             .padding(.bottom, 40)
             
@@ -139,8 +149,12 @@ struct ContentView: View {
             .navigationTitle("Multiply!")
             .navigationBarTitleDisplayMode(.inline)
             .preferredColorScheme(.light)
+            .navigationBarBackButtonHidden(true)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(k.main))
     }
+    
     // Enter amount of Questions asked for, and TimesTable
     func generateQuestions(questionsAmount: Int, timesTable: Int){
         var aBunchOfNumbs = [1,2,3,4,5,6,7,8,9,10,11,12]

@@ -36,8 +36,8 @@ struct QuizView: View {
                 }
                 .font(.title.bold())
                 .frame(width: 200, height: 75)
-                .background(.blue)
-                .foregroundColor(.white)
+                .background(.orange)
+                .foregroundColor(.black)
                 .clipShape(Capsule())
                 .padding()
             }
@@ -54,7 +54,7 @@ struct QuizView: View {
             Spacer()
                 .frame(height: 70)
             VStack{
-            LinearProgress(percentage: percentage, backgroundColor: .black, foregroundColor: LinearGradient(gradient: Gradient(colors: [.blue]), startPoint: .leading, endPoint: .trailing))
+                LinearProgress(percentage: percentage, backgroundColor: .black, foregroundColor: LinearGradient(gradient: Gradient(colors: [Color(k.secondary)]), startPoint: .leading, endPoint: .trailing))
                     .ignoresSafeArea()
                 .frame(height: 30, alignment: .bottom)
                 .frame(maxWidth: .infinity)
@@ -65,7 +65,7 @@ struct QuizView: View {
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(flashRed ? .red : .white).ignoresSafeArea()
+        .background(flashRed ? .red : Color(k.main)).ignoresSafeArea()
         .preferredColorScheme(.light)
     }
     

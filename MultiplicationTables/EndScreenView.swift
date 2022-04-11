@@ -33,8 +33,8 @@ struct EndScreenView: View {
             }
             .font(.title.bold())
             .frame(width: 200, height: 75)
-            .background(.blue)
-            .foregroundColor(.white)
+            .background(Color(k.secondary))
+            .foregroundColor(.black)
             .clipShape(Capsule())
             .padding()
             
@@ -44,11 +44,10 @@ struct EndScreenView: View {
             }
             .font(.title.bold())
             .frame(width: 200, height: 75)
-            .background(.blue)
-            .foregroundColor(.white)
+            .background(Color(k.secondary))
+            .foregroundColor(.black)
             .clipShape(Capsule())
             .padding()
-            
             NavigationLink("", isActive: $redoQuiz){
                 QuizView(timesTable: timesTable, qAmount: qAmount, quiz: quiz)
             }
@@ -58,6 +57,8 @@ struct EndScreenView: View {
             }
             
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(k.main))
         .navigationBarBackButtonHidden(true)
         .preferredColorScheme(.light)
     }
