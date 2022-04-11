@@ -6,20 +6,23 @@
 //
 
 import SwiftUI
+import Progress_Bar
 
 struct QuizView: View {
     @State var timesTable: Int
     @State var qAmount: Int
     @State var quiz: [Quiz]
-    @State private var questionNumber   = 0
-    @State private var score            = 0
-    @State private var flashRed         = false
-    @State private var showEndScreen    = false
+    @State private var questionNumber       = 0
+    @State private var score                = 0
+    @State private var flashRed             = false
+    @State private var showEndScreen        = false
+    @State private var percentage: CGFloat  = 0.0
     var body: some View {
         VStack{
+            Spacer()
             Text(quiz[questionNumber].question)
                 .font(.largeTitle.bold())
-                .padding(.bottom, 100)
+                .padding(.bottom, 90)
             
             //MARK: - Buttons
 
@@ -38,16 +41,26 @@ struct QuizView: View {
                 .padding()
             }
             }
-            .padding(.top, 100)
-            .navigationTitle("\(timesTable)'s!")
-            .navigationBarTitleDisplayMode(.inline)
+            .padding(.top, 8)
             .navigationBarBackButtonHidden(true)
             NavigationLink(isActive: $showEndScreen) {
                 EndScreenView(score: score, questionAmount: questionNumber, quiz: quiz, timesTable: timesTable, qAmount: qAmount)
             } label: {
                 EmptyView()
             }
-
+            
+// progressbar
+            Spacer()
+                .frame(height: 70)
+            VStack{
+            LinearProgress(percentage: 0.5, backgroundColor: .orange, foregroundColor: LinearGradient(gradient: Gradient(colors: [.blue, .blue]), startPoint: .leading, endPoint: .trailing))
+                    .ignoresSafeArea()
+                .frame(height: 30, alignment: .bottom)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal)
+                .padding(.bottom, 35)
+                
+            }
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
