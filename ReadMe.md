@@ -1,4 +1,8 @@
 
+# Multiplication Table!
+Simple Multiplication app created as a challenge. 
+App created with no help or tutorial videos. Hence why it looks so basic haha
+
 ## Demo
 
 
