@@ -109,7 +109,6 @@ struct QuizView: View {
         let qAmntDub = Double(qAmount)
         let div = qNumDub / qAmntDub
         percentage = CGFloat(div)
-        print("questionNumber: \(questionNumber), Q amount: \(qAmount), /n Div: \(div) ,  Percentage = \(percentage)")
     }
 }
 
