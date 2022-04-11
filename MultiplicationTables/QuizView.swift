@@ -32,6 +32,7 @@ struct QuizView: View {
                 let choice = choiceGen(with: quiz[questionNumber].choices, for: number)
                 Button("\(choice)"){
                     checkAnswer(userAnswer: choice)
+                    
                 }
                 .font(.title.bold())
                 .frame(width: 200, height: 75)
@@ -53,7 +54,7 @@ struct QuizView: View {
             Spacer()
                 .frame(height: 70)
             VStack{
-            LinearProgress(percentage: 0.5, backgroundColor: .orange, foregroundColor: LinearGradient(gradient: Gradient(colors: [.blue, .blue]), startPoint: .leading, endPoint: .trailing))
+            LinearProgress(percentage: percentage, backgroundColor: .black, foregroundColor: LinearGradient(gradient: Gradient(colors: [.blue]), startPoint: .leading, endPoint: .trailing))
                     .ignoresSafeArea()
                 .frame(height: 30, alignment: .bottom)
                 .frame(maxWidth: .infinity)
@@ -81,6 +82,7 @@ struct QuizView: View {
             score += 1
             if qAmount != (questionNumber + 1){
                 questionNumber += 1
+                calculatePercentage()
             }else{
                 showEndScreen.toggle()
             }
@@ -94,11 +96,20 @@ struct QuizView: View {
                 }
                 if qAmount != (questionNumber + 1){
                     questionNumber += 1
+                    calculatePercentage()
                 }else{
                     showEndScreen.toggle()
                 }
             }
         }
+    }
+    
+    func calculatePercentage(){
+        let qNumDub = Double(questionNumber + 1)
+        let qAmntDub = Double(qAmount)
+        let div = qNumDub / qAmntDub
+        percentage = CGFloat(div)
+        print("questionNumber: \(questionNumber), Q amount: \(qAmount), /n Div: \(div) ,  Percentage = \(percentage)")
     }
 }
 
